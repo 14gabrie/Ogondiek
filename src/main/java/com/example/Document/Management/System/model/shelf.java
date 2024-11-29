@@ -6,12 +6,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "Shelf")
 public class shelf {
     @Id
     @GeneratedValue
     private Long id;
+    @Column(nullable = false)
     private String name;
+    @Column
     private Float totalDocuments;
+    @Column
     private Float size;
 
     @ManyToOne

@@ -7,21 +7,30 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "document_data")
 public class documentData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long documentDataId;
+    @Column
     private String documentMetaData;
+    @Column
     private Date additionDate;
+    @Column
     private Date RemovalDate;
+    @Column
     private Float size;
+    @Column
     private Float totalFiles;
+    @Column
     private String CreatedBy;
+    @Column
     private String removedBy;
+    @Column
     private String documentStatus;
 
     @ManyToOne
-    @JoinColumn(name = "shelf_id")
+    @JoinColumn(name = "Shelf_id")
     private shelf shelf;
 
     @OneToMany(mappedBy = "documentData", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -2,22 +2,34 @@ package com.example.Document.Management.System.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
+@Table(name = "file_data")
 public class fileData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long documentId;
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = false)
     private String author;
+    @Column(nullable = false)
     private String fileType;
-    private Date createdAt;
-    private Date updatedAt;
-    private Date removedAt;
+    @Column(nullable = false)
+    private LocalDate createdAt;
+    @Column(nullable = false)
+    private LocalDate updatedAt;
+    @Column
+    private LocalDate removedAt;
+    @Column(nullable = false)
     private String CreatedBy;
+    @Column
     private String removedBy;
+    @Column(nullable = false)
     private Float size;
+    @Column(nullable = false)
     private Float version;
 
     @ManyToOne
@@ -27,7 +39,7 @@ public class fileData {
 
     }
 
-    public fileData(Long documentId, String title, String author, String fileType, Date createdAt, Date updatedAt, Date removedAt, String createdBy, String removedBy, Float size, Float version, com.example.Document.Management.System.model.documentData documentData) {
+    public fileData(Long documentId, String title, String author, String fileType, LocalDate createdAt, LocalDate updatedAt, LocalDate removedAt, String createdBy, String removedBy, Float size, Float version, com.example.Document.Management.System.model.documentData documentData) {
         this.documentId = documentId;
         this.title = title;
         this.author = author;
@@ -35,7 +47,7 @@ public class fileData {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.removedAt = removedAt;
-        CreatedBy = createdBy;
+        this.CreatedBy = createdBy;
         this.removedBy = removedBy;
         this.size = size;
         this.version = version;
@@ -74,27 +86,27 @@ public class fileData {
         this.fileType = fileType;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDate getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public Date getRemovedAt() {
+    public LocalDate getRemovedAt() {
         return removedAt;
     }
 
-    public void setRemovedAt(Date removedAt) {
+    public void setRemovedAt(LocalDate removedAt) {
         this.removedAt = removedAt;
     }
 
@@ -137,4 +149,5 @@ public class fileData {
     public void setDocumentData(com.example.Document.Management.System.model.documentData documentData) {
         this.documentData = documentData;
     }
+
 }

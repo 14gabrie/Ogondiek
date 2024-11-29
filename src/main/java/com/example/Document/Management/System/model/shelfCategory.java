@@ -3,6 +3,7 @@ package com.example.Document.Management.System.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,9 +21,9 @@ public class shelfCategory implements Serializable {
     @Column(nullable = false)
     private String status;
     @Column(name = "created_at")
-    private Date createdAt;
+    private LocalDate createdAt;
     @Column(name = "updated_at")
-    private Date updatedAt;
+    private LocalDate updatedAt;
 
 
     //Relationship with shelf
@@ -33,21 +34,13 @@ public class shelfCategory implements Serializable {
 
     }
 
-    public shelfCategory(Long id, String name, String abbreviation, String status, Date createdAt, Date updatedAt, Set<shelf> shelves) {
+    public shelfCategory(Long id, String name, String abbreviation, String status, LocalDate createdAt, LocalDate updatedAt, Set<shelf> shelves) {
         this.id = id;
         this.name = name;
         this.abbreviation = abbreviation;
         this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-        this.shelves = shelves;
-    }
-
-    public Set<shelf> getShelves() {
-        return shelves;
-    }
-
-    public void setShelves(Set<shelf> shelves) {
         this.shelves = shelves;
     }
 
@@ -83,22 +76,28 @@ public class shelfCategory implements Serializable {
         this.status = status;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDate getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
     }
 
+    public Set<shelf> getShelves() {
+        return shelves;
+    }
 
+    public void setShelves(Set<shelf> shelves) {
+        this.shelves = shelves;
+    }
 }
 

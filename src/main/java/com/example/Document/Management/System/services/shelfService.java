@@ -2,9 +2,6 @@ package com.example.Document.Management.System.services;
 
 import com.example.Document.Management.System.model.shelf;
 import com.example.Document.Management.System.repositories.shelfRepository;
-import com.example.Document.Management.System.repositories.shelfCategoryRepository;
-import com.example.Document.Management.System.model.shelfCategory;
-import com.example.Document.Management.System.services.shelfCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
